@@ -36,5 +36,38 @@ public class J12_UserRepository {
 		}
 	}
 	
+	public J12_User findUserByUsername(String username) {
+		
+		J12_User user = null; // return을 해주기 위해 비어있는 user를 생성
+		
+		for(J12_User u : userTable) {
+			if(u == null) { // null 체크는 무조건 해야 함 만약에 null이라면 다음 if문이 실행이 안 됨
+				continue;
+			}
+			if(u.getUsername().equals(username)) {
+				user = u;
+				break;
+			}
+		}
+		
+		return user;
+	}
+	
+	/*
+	 * 
+	 * 1.사용자이름으로 회원 조회
+	 * 
+	 * 2. 회원 정보 수정
+	 * 		수정 할 사용자이름을 입력하세요:
+	 * 
+	 * 		<< 사용자이름: aaa>>
+	 * 
+	 * 		1. 비밀번호 변경
+	 * 		2. 이름 변경
+	 * 		3. 이메일 변경
+	 * 
+	 * 		b. 뒤로가기
+	 */
 	
 }
+

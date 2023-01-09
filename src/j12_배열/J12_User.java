@@ -1,5 +1,7 @@
 package j12_배열;
 
+//유저 정보 묶음
+
 public class J12_User {
 	
 	private String username;
@@ -7,7 +9,9 @@ public class J12_User {
 	private String name;
 	private String email;
 	
-	public J12_User() {}
+	public J12_User() {
+		
+	}
 
 	public J12_User(String username, String password, String name, String email) {
 		this.username = username;

@@ -8,7 +8,7 @@ public class Array5 {
 		}
 	}
 
-	public static int[] addArrayLength(int [] array) { // 새로운 크기의 배열을 만들어주는 작업
+	public static int[] addArrayLength(int[] array) { // 새로운 크기의 배열을 만들어주는 작업
 		int[] newArray = new int[array.length + 1]; // 기존 배열의 크기에 + 1
 		transferArray(array, newArray); // 기존 배열과 증가한 배열을 transferArray에 전달
 		return newArray;
