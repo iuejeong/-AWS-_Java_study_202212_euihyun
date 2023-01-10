@@ -7,6 +7,10 @@ public class J09_User {
 	String name;
 	String email;
 	
+	public J09_User() {
+		
+	}
+	
 	void printUserInfo() {
 		
 		System.out.println("아이디: " + userName);
