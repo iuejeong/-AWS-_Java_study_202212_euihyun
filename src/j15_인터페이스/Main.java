@@ -38,16 +38,16 @@ public class Main {
 /*
  * 문제점
  * 1. 왜 Equipment 배열인가
- * 답변 :
+ * 답변 : 스마트폰이랑 일반계산기에 powerOn,Off를 넣기 위해
  * 
  * 2. Calculator변수에 Computer가 왜 생성이 되어있는가, Computer클래스는 무슨 역할을 하는가
- * 답변 :
+ * 답변 : Computer는 설명을 하기 위한 자료로 쓰였음
  * 
  * 3. for each의 자세한 개념
- * 답변 :
+ * 답변 : 배열의 값을 이용할 때 for each를 사용하면 코딩양이 적어지고 그만큼 코드가 직관적으로 작성 되어 가독성도 뛰어나게 된다.
  * 
  * 4. for each문에 들어간 Equipment
- * 답변 :
+ * 답변 : 
  * 
  * 5. Calculator로의 형변환이 일어난 이유
  * 답변 :
