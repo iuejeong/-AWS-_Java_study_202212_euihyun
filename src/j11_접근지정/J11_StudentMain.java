@@ -5,11 +5,11 @@ import j11_접근지정.default1.J11_StudentDefault;
 public class J11_StudentMain {
 	
 	public static void main(String[] args) {
-//		J11_Student s1 = new J11_Student();
+		J11_Student s1 = new J11_Student();
 
-//		s1.setName("김준일");
-//		
-//		s1.printInfo();
+		s1.setName("김준일");
+		
+		s1.printInfo();
 		
 		J11_StudentDefault s2 = new J11_StudentDefault();
 		

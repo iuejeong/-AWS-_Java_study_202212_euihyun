@@ -8,7 +8,7 @@ public class Main {
 		
 		Test_B tb = new Test_B(tc);
 		
-		Test_A ta = new Test_A(tb); // ***Dependence injection*** 젤 중요함
+		Test_A ta = new Test_A(tb); // ***Dependence injection(의존성 주입)*** 젤 중요함
 		
 //		ta.setTb(tb);
 		
