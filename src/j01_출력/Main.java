@@ -5,22 +5,19 @@ import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) {
-		int a = 1;
-		int b = 1;
-		int c = 2;
-		int d = 2;
-		int e = 2;
-		int f = 8;
+		int A = 0;
+		int B = 0;
+		int C = 0;
 		
 		
 		Scanner scanner = new Scanner(System.in);
-		a = scanner.nextInt();
-		b = scanner.nextInt();
-		c = scanner.nextInt();
-		d = scanner.nextInt();
-		e = scanner.nextInt();
-		f = scanner.nextInt();
-		System.out.println(a);
+		A = scanner.nextInt();
+		B = scanner.nextInt();
+		C = scanner.nextInt();
+	
+		System.out.print(A);
+		System.out.print(B);
+		System.out.print(C);
 	}
 	
 }
