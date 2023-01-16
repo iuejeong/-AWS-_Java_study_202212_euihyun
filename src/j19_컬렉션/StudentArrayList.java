@@ -25,7 +25,7 @@ public class StudentArrayList {
 		
 
 		
-		List<Student> students = new ArrayList<>();
+	List<Student> students = new ArrayList<>();
 		students.add(new Student("김종환", 1));
 		students.add(new Student("고병수", 2));
 		students.add(new Student("손민재", 3));
@@ -47,7 +47,7 @@ public class StudentArrayList {
 				flag = false;
 				break;
 			}
-		} 
+	} 
 		
 		for(Student student : students) { // forEach를 쓰는 방법
 			if(student.getName().equals(searchName)) {
