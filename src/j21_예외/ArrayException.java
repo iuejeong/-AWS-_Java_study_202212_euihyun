@@ -10,11 +10,11 @@ public class ArrayException {
 			throw new NullPointerException(); // 강제로 예외 발생
 //			for(int i = 0; i < 6; i++) {
 //				System.out.println(nums[i]);
-//			}
+//			} // 하위 객체부터 예외 검사
 	}	catch (IndexOutOfBoundsException e) {
 			System.out.println("예외 처리함");
 			
-	}	catch (NullPointerException e ) {
+	}	catch (NullPointerException e ) { // 주소 참조를 하는데 대상이 null이다
 		System.out.println("빈값 처리함");
 		
 	}	catch (Exception e) { // Exception은 최종적으로 걸리는 예외 처리이다.

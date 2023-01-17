@@ -8,14 +8,10 @@ public class Main {
 		
 	Scanner scanner = new Scanner(System.in);
 	
-	int score = 0;
+	int year = 0;
 	
-	score = scanner.nextInt();
+	year = scanner.nextInt();
 	
-	
-	char grade = 
-	
-		
 			
 	}
 }
