@@ -126,6 +126,21 @@ public class UserManagemanetFrame extends JFrame {
 		loginButton.addMouseListener(new MouseAdapter() { 
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				JsonObject loginUser = new JsonObject();
+				loginUser.addProperty("usernameAndEmail", usernameField.getText());
+				loginUser.addProperty("password", passwordField.getText()); // JsonText가 됨
+				
+				UserService userService = UserService.getInstance();
+				
+				Map<String, String> response = userService.authorize(loginUser.toString());
+				
+				if(response.containsKey("error")) {
+					JOptionPane.showMessageDialog(null, response.get("error"), "error", JOptionPane.ERROR_MESSAGE); // 처음은 null, 2,3번째는 메세지 내용, 4번째는 아이콘
+					return;
+				}
+				
+				JOptionPane.showMessageDialog(null, response.get("OK"), "OK", JOptionPane.INFORMATION_MESSAGE);
+				
 			}
 		});
 		loginButton.setBackground(new Color(51, 204, 255));
