@@ -113,6 +113,21 @@ public class UserManagemanetFrame extends JFrame {
 		loginPanel.add(passwordLabel);
 		
 		JButton loginButton = new JButton("Login");
+		
+//		MouseListener listener = new MouseAdapter() {
+//		
+//		@Override
+//		public void mouseClicked(MouseEvent e) {
+//			
+//		}
+//			
+//		}; 풀어쓴 것
+		
+		loginButton.addMouseListener(new MouseAdapter() { 
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
 		loginButton.setBackground(new Color(51, 204, 255));
 		loginButton.setForeground(new Color(0, 0, 0));
 		loginButton.setFont(new Font("Segoe Print", Font.PLAIN, 12));
