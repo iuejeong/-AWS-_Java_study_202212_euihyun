@@ -82,5 +82,39 @@ public class UserService {
 		return userRepository.findUserByEmail(email) != null;
 	}
 	
+	public Map<String, String> authorize(String loginUserJson) {
+		Map<String, String> loginUser = gson.fromJson(loginUserJson, Map.class); // Json을 Map으로 바꾼다.
+		
+		Map<String, String> response = new HashMap<>();
+		
+		for(Entry<String, String> entry : loginUser.entrySet()) {
+			if(entry.getValue().isBlank()) {
+				response.put("error", entry.getKey() + "은(는) 공백일 수 없습니다.");
+				return response;
+			}
+		}
+		//User ID 체크
+		String usernameAndEmail = loginUser.get("usernameAndEmail");
+		
+		User user = userRepository.findUserByUsername(usernameAndEmail);
+		if(user == null) {
+			user = userRepository.findUserByEmail(usernameAndEmail);
+			if(user == null) {
+				response.put("error", "사용자 정보를 확인해주세요.");
+				return response;
+			}
+		}
+		
+		// password 확인
+		if(!BCrypt.checkpw(loginUser.get("password"), user.getPassword())) {
+			response.put("error", "사용자 정보를 확인해주세요.");
+			return response;
+		}
+		
+		response.put("OK", user.getName() + "님 환영합니다.");
+		return response;
+		
+	}
+	
 
 }
