@@ -6,12 +6,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-	Scanner scanner = new Scanner(System.in);
-	
-	int year = 0;
-	
-	year = scanner.nextInt();
-	
+		System.out.println(1.1 + 0.1 == 1.2);
 			
 	}
 }
