@@ -9,6 +9,7 @@ import org.mindrot.jbcrypt.BCrypt;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import usermanagemaent.entity.RoleDtl;
 import usermanagemaent.entity.User;
 import usermanagemaent.repository.UserRepository;
 
@@ -35,7 +36,7 @@ public class UserService {
 	public Map<String, String> register(String userJson) {
 		// response : 응답
 		Map<String, String> response = new HashMap<>();
-		// Entry는 key와 value의 한 쌍
+		// Entry는 key와 value의 한 쌍. 그것들을 모아둔 것이 Map
 		Map<String, String> userMap = gson.fromJson(userJson, Map.class);
 		
 		for(Entry<String, String> userEntry : userMap.entrySet()) {
@@ -68,6 +69,13 @@ public class UserService {
 		System.out.println(user);
 		
 		userRepository.saveUser(user);
+		
+		RoleDtl roleDtl = RoleDtl.builder()
+				.roleId(3)
+				.userId(user.getUserId())
+				.build();
+		
+		userRepository.saveRoleDtl(roleDtl);
 		
 		response.put("OK", "회원가입 성공!");
 		
