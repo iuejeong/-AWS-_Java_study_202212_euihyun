@@ -18,7 +18,7 @@ public class MapStringMain {
 		
 		System.out.println(strMap);
 
-		System.out.println(strMap.get("a"));
+		System.out.println(strMap.get("이종현"));
 		System.out.println(strMap.get("e"));
 	
 		for(String k : strMap.keySet()) {

@@ -98,6 +98,7 @@ public class UserService {
 		for(Entry<String, String> entry : loginUser.entrySet()) {
 			if(entry.getValue().isBlank()) {
 				response.put("error", entry.getKey() + "은(는) 공백일 수 없습니다.");
+				
 				return response;
 			}
 		}

@@ -8,7 +8,6 @@ public class ListStringMain {
 	public static void main(String[] args) {
 		
 		String[] strArray = new String[] {"java", "python", "C++"};
-		
 		String[] newStrArray = new String[strArray.length + 1];
 		
 		for(int i = 0; i < strArray.length; i++) {
@@ -31,15 +30,15 @@ public class ListStringMain {
 		//////////////////////////////////////////////
 		//자료구조 또는 알고리즘이라 한다.
 		ArrayList<String> strList = new ArrayList<>();
-		strList.add("java");
+		strList.add("java"); // java 추가
 		strList.add("python");
 		strList.add("python");
 		strList.add("python");
 		strList.add("python");
 		strList.add("python");
-		strList.remove("java");
-		strList.add(1, "java");
-		strList.remove(1);
+		strList.remove("java"); // java 제거
+		strList.add(1, "java"); // 1번 인덱스 자리에 java 추가
+		strList.remove(1); // 1번 인덱스 삭제
 
 		for(int i = 0; i < strList.size(); i++) {
 			System.out.print("[" + i + "]: ");
