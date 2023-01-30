@@ -19,7 +19,16 @@ public class ArrayListMain {
 	 */
 
 	public static void main(String[] args) {
-
+		// List 특징 : 순서가 있다, 중복이 가능하다 == 배열
+		// int[] nums == List<Integer> nums
+		// 배열과 List의 차이는 List는 객체다.
+		// ArrayList<?> list = new ArrayList<String>(); -> 자료형이 String이다. 자료형이 정해주는 기준은 생성되는 시점이다.
+		// 			//		 = new ArrayList<User>();
+		// 			// 		 = new ArrayList<Object>(); -> 어떤 자료형이든 상관없이 쓰고 싶으면 Object를 쓴다.
+		// ArrayList<String> list = new ArrayList<>(); 초기화할 때 앞 쪽에 어떤 자료형을 쓸 건지 변수가 존재해야 뒤에 생략이 가능하다.
+		// list.toArray(); -> list를 배열로 바꿈. 배열 값이 object이기 때문에 꺼낼 때 하나하나씩 다 다운캐스팅을 해줘야 한다.
+		// ArrayList는 List를 상속 받고 있고 그 안에 밑에 메서드들을 쓸 수 있게 설계되어 있다. 
+		
 		List<String> strList = new ArrayList<>();
 		
 		// * 값 추가

@@ -13,23 +13,33 @@ class User {
 		this.name = name;
 		this.email = email;
 		
-		System.out.println("[사용자 정보]");
-		System.out.println("username: " + username);
-		System.out.println("password: " + password);
-		System.out.println("name: " + name);
-		System.out.println("email: " + email);
+	}
+
+
+	@Override
+	public String toString() {
+		return "[사용자 정보]" + 
+	"\nusername: " + username + 
+	"\npassword: " + password + 
+	"\nname: " + name + 
+	"\nemail: " + email;
 	}
 	
+
 	
 }
 
 public class UserMain {
 	
 	public static void main(String[] args) {
-		User user = new User("junil", "1234", "김준일", "junil@gmail.com");
-			
 		
-			System.out.println(user);
+		User user = new User("junil", "1234", "김준일", "junil@gmail.com");
+		
+			System.out.println(user); 
+			
+			String u = user.toString();
+			
+			System.out.println(u);
 		
 	}
 	

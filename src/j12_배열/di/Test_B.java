@@ -11,7 +11,6 @@ public class Test_B {
 	public void testB1() {
 		
 		System.out.println("\t테스트B1 메소드 호출");
-		Test_C tc = new Test_C();
 		
 		tc.testC1();
 	}

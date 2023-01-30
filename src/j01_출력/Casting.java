@@ -2,8 +2,6 @@ package j01_출력;
 
 abstract class Program {
 	public abstract void develop();
-	public abstract void garvageCollection();
-	public abstract void defineStructure();
 }
 
 class Java extends Program {
@@ -17,10 +15,6 @@ class Java extends Program {
 		System.out.println("메모리를 정리합니다.");
 	}
 
-	@Override
-	public void defineStructure() {
-		
-	}
 	
 }
 
@@ -35,10 +29,6 @@ class C extends Program {
 		System.out.println("구조체를 정의합니다.");
 	}
 
-	@Override
-	public void garvageCollection() {
-		
-	}
 }
 
 public class Casting {
@@ -52,8 +42,14 @@ public class Casting {
 		
 		for(int i = 0; i < programs.length; i++) {
 			programs[i].develop();
-			programs[i].garvageCollection();
-			programs[i].defineStructure();
+			
+			if(programs[i].getClass() == Java.class) {
+				Java java = (Java)programs[i];
+				java.garvageCollection();
+			}else if(programs[i].getClass() == C.class) {
+				C c = (C)programs[i];
+				c.defineStructure();
+			}
 		}
 	}
 }

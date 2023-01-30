@@ -6,7 +6,7 @@ public class Test_A {
 	
 	public Test_A(Test_B tb) {
 		this.tb = tb; 
-	// Test_B tb = new Test -> 테스트B는 테스트A를 의존하고 있다 -> Dependency 즉, 의존성이 높다 == 결합도가 높다
+	// Test_B tb = new Test_A -> 테스트B는 테스트A를 의존하고 있다 -> Dependency 즉, 의존성이 높다 == 결합도가 높다
 	}
 	
 //	public void setTb(Test_B tb) {
