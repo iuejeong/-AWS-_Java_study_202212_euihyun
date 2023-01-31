@@ -1,7 +1,5 @@
 package j01_출력;
 
-import j17_스태틱.싱글톤.KIA;
-
 public class HelloJava {
 	// 주석 : 코드 내부에 메모를 할 때 사용함.
 	// 컴파일 시에 무시됨.
@@ -27,7 +25,6 @@ public class HelloJava {
 		
 		System.out.println();
 		
-		KIA.getInstance().printCompanyName();
 	}
 	
 }
