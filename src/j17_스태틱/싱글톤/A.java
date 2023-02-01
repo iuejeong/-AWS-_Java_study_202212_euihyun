@@ -2,7 +2,7 @@ package j17_스태틱.싱글톤;
 
 public class A {
 	
-	private static A instance = null;
+	private static A instance;
 	
 	private A() {}
 	

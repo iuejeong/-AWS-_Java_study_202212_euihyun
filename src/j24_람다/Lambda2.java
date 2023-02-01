@@ -8,7 +8,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.function.Supplier;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Lambda2 {
 
@@ -98,6 +102,84 @@ public class Lambda2 {
 			System.out.println();
 		}
 		
+		
+		// 4. Function<T, R> - R apply(T t)
+		// 매개변수 O, 반환값 O
+		Function<String, Integer> h = num -> Integer.parseInt(num);
+		
+		int convertStrNum1 = h.apply("10000");
+		int convertStrNum2 = h.apply("20000");
+		
+		System.out.println(convertStrNum1 + convertStrNum2);
+		
+		
+		// 5. Predicate<T> - boolean test(T t)
+		// 매개변수 O, 반환값 O
+		Predicate<String> p = str -> str.startsWith("김");
+		Predicate<String> p2 = str -> str.startsWith("이");
+		
+		// p와 p2 없이도 가능하다는 것
+		Function<Predicate<String>, Boolean> function1 = predicate
+				-> predicate.or(str -> str.startsWith("이")).test("김준일");
+		
+		// p.test("김준일") || p2.test("이현수")를 쓰지 않고 아래와 같이 쓴다.
+		System.out.println(p.or(p2).test("김준일"));
+		
+		boolean rs = function1.apply(str -> str.startsWith("김")); // 람다로 한 번에 넣기
+		System.out.println(rs);
+		
+		List<String> nameList = new ArrayList<>();
+		nameList.add("김종환");
+		nameList.add("고병수");
+		nameList.add("김상현");
+		nameList.add("김준경");
+		
+		// List를 Stream으로 바꿈
+		// Stream은 .filter가 가능하다
+		// 스트림의 특징: 일회용
+		Stream<String> stream = nameList.stream().filter(name -> name.startsWith("김")); // 필터를 적용시켜 참인 것들만 들고온다
+//		stream.forEach(name -> System.out.println(name));
+		List<String> newList = stream.collect(Collectors.toList()); // Stream을 List로 변환
+		
+		newList.forEach(str -> System.out.println(str));
+		System.out.println("======================================");
+		
+		nameList.stream()
+			.filter(name -> name.startsWith("김"))
+			.collect(Collectors.toList())
+			.forEach(System.out::println);
+		
 	}
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
