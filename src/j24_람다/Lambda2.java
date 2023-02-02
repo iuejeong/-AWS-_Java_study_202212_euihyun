@@ -147,7 +147,9 @@ public class Lambda2 {
 		nameList.stream()
 			.filter(name -> name.startsWith("김"))
 			.collect(Collectors.toList())
-			.forEach(System.out::println);
+			.forEach(System.out::println); // forEach(name -> System.out.println(name));과 똑같은 것
+		
+		
 		
 	}
 	
