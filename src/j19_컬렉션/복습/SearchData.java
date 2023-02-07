@@ -13,6 +13,7 @@ public class SearchData {
 		searchData.put("searchValue", "불편한 편의점");
 		
 		System.out.println(searchData); // Map을 toString
+		
 		System.out.println(searchData.get("category")); // get에 key를 넣고 value를 출력한다.
 		System.out.println(searchData.get("searchValue"));
 		
