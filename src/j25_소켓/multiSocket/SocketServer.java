@@ -12,12 +12,17 @@ import java.util.List;
 
 public class SocketServer extends Thread {
 	
-	public static List<SocketServer> clientList = new ArrayList<>();
+	public static List<SocketServer> clientList = new ArrayList<>();	// SocketServer를 담는 공간, Socket들을 담은 list
 	private Socket socket;
+	private InputStream inputStream;
+	private OutputStream outputStream;
+	
+	private static int autoIncrement = 1;
 	private	String name; 
 	
-	public SocketServer(Socket socket) {
+	public SocketServer(Socket socket) {		// 방금 연결된 소켓을 준다.
 		this.socket = socket;
+		name = "user" + autoIncrement++;
 		clientList.add(this);
 	}
 	
@@ -28,51 +33,43 @@ public class SocketServer extends Thread {
 		System.out.println("IP: " + socket.getInetAddress());		// 실제 클라이언트 주소의 IP를 가져다 준다.
 		
 		try {
-			InputStream inputStream = socket.getInputStream();
+			inputStream = socket.getInputStream();
 			BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
 			
-			OutputStream outputStream = socket.getOutputStream();
-			PrintWriter writer = new PrintWriter(outputStream, true);
+			sendToAll(name + "님이 접속하였습니다.");
 			
-			writer.println("서버에 접속 성공!");
-			writer.println("사용자 이름을 입력하세요!");
-			
-			String message = null;
-			boolean loginFlag = false;
-			
-			while((message = reader.readLine()) != null) {		// 상대방이 보낸 메세지
-				if(name == null) {
-					name = message;
-					System.out.println("\n서버에 " + name + "님이 접속하였습니다.");
+			while(true) {
+				String message = reader.readLine();		// message가 들어올 때까지 기다린다.
+				if(message == null) {	// null이 들어왔다는 것은 통신이 끊겼다는 것. 이유는 message를 받았다는 것은 문자열로 들어왔기 때문에
+					break;
 				}
-				
-				for(SocketServer s : clientList) {
-					try {
-						outputStream = s.socket.getOutputStream();
-						writer = new PrintWriter(outputStream, true);
-						
-						if(!loginFlag) {
-							writer.println("\n" + s.name + "님이 접속하였습니다.");
-							loginFlag = true;
-							continue;
-						}
-						
-						writer.println("\n" + s.name + ": " + message);
-						
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
-				}
+				sendToAll(message); 	// if가 걸리지 않으면 모든 사용자들에게 message를 전달함.
 			}
-			
 			
 		} catch (IOException e) {
 			e.printStackTrace();
+			
+		} finally {
+			try {
+				inputStream.close();	// 서버를 종료시킨다.
+				outputStream.close();
+				socket.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
 		}
-		
-		
 	}
 	
+	// BroadCasting : 모든 클라이언트에게 동시에 데이터를 쏴줄 때 사용
+	private void sendToAll(String message) throws IOException {
+		for(SocketServer socketServer : clientList) {
+				outputStream = socketServer.socket.getOutputStream();
+				PrintWriter writer = new PrintWriter(outputStream, true);
+				writer.println(name + ": " + message);		// name : 방금 들어온 대상
+				
+		}
+	}
 }
 
 
