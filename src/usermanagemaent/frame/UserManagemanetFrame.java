@@ -175,7 +175,7 @@ public class UserManagemanetFrame extends JFrame {
 					return;
 				}
 				
-				JOptionPane.showMessageDialog(null, response.get("OK"), "OK", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null, response.get("oK"), "oK", JOptionPane.INFORMATION_MESSAGE);
 				
 			}
 		});
@@ -302,7 +302,18 @@ public class UserManagemanetFrame extends JFrame {
 					String response = reader.readLine();
 					System.out.println("응답 옴!");
 					ResponseDto<?> responseDto = gson.fromJson(response, ResponseDto.class);
-					System.out.println(responseDto);
+					
+					if (responseDto.getCode().equals("error")) {
+						JOptionPane.showMessageDialog(null, responseDto.getBody(), responseDto.getCode(),
+								JOptionPane.ERROR_MESSAGE);
+						return; // 클릭 메소드를 빠져나감
+					}
+					
+					JOptionPane.showMessageDialog(null, responseDto.getBody(), responseDto.getCode(),
+							JOptionPane.INFORMATION_MESSAGE);
+					mainCard.show(mainPanel, "loginPanel");
+					clearFields(registerFields);
+					
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
@@ -345,6 +356,7 @@ public class UserManagemanetFrame extends JFrame {
 	
 	private void clearFields(List<JTextField> textFields) {
 		for(JTextField field : textFields) {
+			// 공백이라도 있으면 setText를 해라
 			if(field.getText().isEmpty()) {
 				continue;
 			}

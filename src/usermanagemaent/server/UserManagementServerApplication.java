@@ -23,7 +23,11 @@ public class UserManagementServerApplication implements Runnable {
 			
 		} finally {
 			try {
-				serverSocket.close();
+				// 서버가 열리지 않았을 때
+				if(serverSocket != null) {
+					serverSocket.close();
+				}
+				
 				System.out.println("============<< 서버 종료 >>============");
 				
 			} catch (IOException e) {
