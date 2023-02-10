@@ -77,7 +77,7 @@ public class UserService {
 		
 		userRepository.saveRoleDtl(roleDtl);
 		
-		response.put("oK", "회원가입 성공!");
+		response.put("ok", "회원가입 성공!");
 		
 		return response;
 	}
@@ -120,7 +120,7 @@ public class UserService {
 			return response;
 		}
 		
-		response.put("oK", user.getName() + "님 환영합니다.");
+		response.put("ok", user.getName() + "님 환영합니다.");
 		return response;
 		
 	}
