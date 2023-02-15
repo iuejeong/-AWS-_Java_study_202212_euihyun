@@ -55,7 +55,7 @@ class ConnectedSocket extends Thread {
 				RequestDto requestDto = gson.fromJson(request, RequestDto.class);
 				
 				switch(requestDto.getResource()) {
-					case "join": 
+					case "join":
 							JoinReqDto joinReqDto = gson.fromJson(requestDto.getBody(), JoinReqDto.class);
 							username = joinReqDto.getUsername();
 							List<String> connectedUsers = new ArrayList<>();

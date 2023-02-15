@@ -212,7 +212,7 @@ public class ChattingClient extends JFrame {
 		
 		if(!messageInput.getText().isBlank()) {
 			
-			String toUser = userList.getSelectedIndex() == 0? "all" : userList.getSelectedValue();		// 제네릭을 잡아주지 않으면 Object로 잡힌다.
+			String toUser = userList.getSelectedIndex() == 0 ?  "all" : userList.getSelectedValue();		// 제네릭을 잡아주지 않으면 Object로 잡힌다.
 			
 			MessageReqDto messageReqDto = 
 					new MessageReqDto(toUser, username, messageInput.getText());
