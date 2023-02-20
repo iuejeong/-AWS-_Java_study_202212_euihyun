@@ -105,7 +105,7 @@ class ConnectedSocket extends Thread {
 	private void sendToUser(String resource, String status, String body, String toUser) throws IOException {
 		ResponseDto responseDto = new ResponseDto(resource, status, body);
 		for(ConnectedSocket connectedSocket : socketList) {
-			if(connectedSocket.getUsername().equals(toUser) || connectedSocket.getUsername().equals(username)) {		// Map을 쓰면 효율적이다. Key값으로 username을 넣는다
+			if(connectedSocket.getUsername().equals(toUser) || connectedSocket.getUsername().equals(username)) {// Map을 쓰면 효율적이다. Key값으로 username을 넣는다
 				OutputStream outputStream = connectedSocket.getSocket().getOutputStream();
 				PrintWriter out = new PrintWriter(outputStream, true);
 				

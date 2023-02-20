@@ -191,7 +191,6 @@ public class ChattingClient extends JFrame {
 		});
 		sendButton.setBounds(708, 374, 68, 43);
 		contentPane.add(sendButton);
-		
 	}
 	
 	private void sendRequest(String resource, String body) {
