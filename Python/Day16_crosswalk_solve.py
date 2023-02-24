@@ -211,7 +211,7 @@ def target5 (data):
 
 
 if __name__ == '__main__':
-    np_data = np_data_from_data_go_kr_csv('전국횡단보도표준데이터.csv')
+    np_data = np_data_from_data_go_kr_csv('xing.csv')
     print(target1(np_data))
     print(target2(np_data))
     print(target3(np_data))
