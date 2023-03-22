@@ -15,6 +15,7 @@ class SubjectService {
 		int length = 3;
 		for(int i = 0; i < length; i ++) {
 			System.out.println(subjects.get(i));
+			System.out.println("git test");
 		}
 	}
 }
