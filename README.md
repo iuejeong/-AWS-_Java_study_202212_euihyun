@@ -360,3 +360,491 @@ b
 </details>
 
 ## 📌 연산자
+
+<details>
+<summary>Operation1.java</summary> 
+<div markdown="1">       
+  
+```java
+  
+public class Operation1 {
+
+	public static void main(String[] args) {
+		int add = 1 + 2;
+		int sub = 10 - 5;
+		int mul = 10 * 2;
+		int div = 10 / 4;
+		int remainder = 10 % 5;
+		
+		
+		System.out.println(add);
+		System.out.println(sub);
+		System.out.println(mul);
+		System.out.println(div);
+		System.out.println(remainder);
+		
+		System.out.println(remainder == 0 ? "5의 배수이다" : "5의 배수가 아니다");
+		
+	}
+
+}
+  
+```
+  
+#### 출력물
+  
+```
+  
+3
+5
+20
+2
+0
+5의 배수이다
+  
+```
+  
+---
+  
+- 단항 연산자 : 항이 하나
+	
+  ex) ++num, --num -> 증감 연산자
+
+- 이항 연산자 : 항이 두 개
+	
+  ex) +,-
+
+- 삼항 연산자 : 항이 세 개
+	
+  ex) ?
+	
+- 대입 연산자 : 변수에 값을 대입하는 연산자
+	
+  ex) =
+	
+- 산술 연산자 : +,-,*,/,%
+	
+  "+" : 더한다
+
+  "-" : 뺀다
+
+  "*" : 곱한다
+
+  "/" : 나눈다
+
+  "%" : 나누어서 나머지를 구한다
+	
+---
+
+</div>
+</details>
+
+<details>
+<summary>Operation2.java</summary> 
+<div markdown="1">       
+  
+```java
+  
+public class Operation2 {
+
+	public static void main(String[] args) {
+		int num = 10;
+		
+		num = num + 1;
+		
+		System.out.println(num++);
+		System.out.println(num++);
+		System.out.println(num);
+		
+	}
+
+}
+  
+```
+  
+#### 출력물
+  
+```
+  
+11
+12
+13
+  
+```
+  
+---
+  
+- 증감 연산자 : ++,--
+
+  ++ : 1을 더한다
+
+  -- : 1을 뺀다
+
+ex) ++num -> 선증가
+
+   num++ -> 후증가
+	
+---
+
+</div>
+</details>
+
+<details>
+<summary>Operation3.java</summary> 
+<div markdown="1">       
+  
+```java
+  
+public class Operation3 {
+
+	public static void main(String[] args) {
+		int num = 10;
+		
+		boolean flag1 = true;
+		boolean flag2 = true;
+		boolean flag3 = num % 2 > 0;
+		
+		System.out.println(flag1 && flag2);
+		System.out.println(flag1 && flag3);
+		System.out.println(!(flag2 || flag3 && flag1));
+		
+	}
+
+}
+  
+```
+  
+#### 출력물
+  
+```
+  
+true
+false
+false
+  
+```
+  
+---
+  
+- 관계 연산자 : >, <, >=, <=, ==, !=
+
+- 논리 연산자 : 0외에는 참이다
+			
+AND(곱) : &&, 모든 조건이 부합해야 함
+
+OR(합) : ||, 하나만 참이어도 참
+
+NOT(부정) : !
+			
+- 조건 연산자 : 조건식 ? 결과1 : 결과 2
+
+조건식이 참이면 결과1을 반환, 거짓이면 결과2를 반환
+
+결과1,2는 자료형이 같아야 한다
+
+조건문이 길어질 경우 연산자 앞에서 끊어줌
+
+삼항 연산자의 경우 :에서 끊어줌
+	
+---
+
+</div>
+</details>
+	
+<details>
+<summary>Operation6.java (시험 성적을 학점으로 계산하는 프로그램)</summary> 
+<div markdown="1">       
+
+
+ * 정수자료형 score변수 선언
+ * 88점으로 초기화
+ * 
+ * 문자자료형 grade변수 선언
+ * 
+ * 조건
+ * score가 0점보다 작거나 100점보다 크면 X를 출력
+ * score가 90 ~ 100점이면 A학점
+ * score가 80 ~ 89점이면 B학점
+ * score가 70 ~ 79점이면 C학점
+ * score가 60 ~ 69점이면 D학점
+ * score가 50 ~ 59점이면 F학점
+	
+```java
+  
+public class Operation6 {
+
+	public static void main(String[] args) {
+		int score = 40;
+
+		char grade = 0 > score || score > 100 ? 'X' 
+				: score > 89 ? 'A' 
+				: score > 79 ? 'B'
+				: score > 69 ? 'C'
+				: score > 59 ? 'D' : 'F'; 
+
+		char plus = score > 100 || score < 60 ? '\0' : score % 10 > 4 || score == 100 ? '+' : '\0';
+
+		System.out.println("점수" + "(" + score + "): " + grade + plus + "학점");
+		
+	}
+
+}
+  
+```
+  
+#### 출력물
+  
+```
+  
+점수(40): F
+  
+```
+  
+---
+  
+- score에 내가 입력하고 싶은 점수를 입력
+	
+- 입력한 점수를 조건애 맞게 학점이 출력이 된다.
+	
+- plus는 예를 들어 A0나 A+를 출력할 수 있게 삼항연산자로 조건을 걸어준다.
+	
+---
+
+</div>
+</details>
+	
+## 📌 입력(Scanner)
+	
+<details>
+<summary>input1.java</summary> 
+<div markdown="1">       
+	
+```java
+  
+public class input1 {
+
+	public static void main(String[] args) {
+		
+		Scanner scanner = new Scanner(System.in);
+		int num1 = 0;
+		int num2 = 0;
+		int num3 = 0;
+		int num4 = 0;
+		int num5 = 0;
+		
+		System.out.print("입력1: ");
+		 num1 = scanner.nextInt();
+		System.out.print("입력2: ");
+		 num2 = scanner.nextInt();
+		System.out.print("입력3: ");
+		 num3 = scanner.nextInt();
+		System.out.print("입력4: ");
+		 num4 = scanner.nextInt();
+		System.out.print("입력5: ");
+		 num5 = scanner.nextInt();
+		
+		
+		System.out.println("입력값: " + (num1 + num2 + num3 + num4 + num5));
+	}
+
+}
+  
+```
+  
+#### 출력물
+  
+```
+  
+입력1: 1
+입력2: 2
+입력3: 3
+입력4: 4
+입력5: 5
+입력값: 15
+  
+```
+  
+---
+  
+- 문자열은 뭘 합쳐도 문자열이 됨
+	
+- 초기 변수 선언할 때 int num = 0;처럼 초기화를 해주는 게 좋다
+	
+- System : 운영체제라고 생각하면 됨
+	
+---
+
+</div>
+</details>
+	
+<details>
+<summary>input2.java</summary> 
+<div markdown="1">       
+	
+```java
+  
+public class input2 {
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.print("문자열1: ");
+		String str1 = scanner.nextLine(); // 띄어쓰기 허용
+		
+		System.out.print("문자열2: ");
+		String str2 = scanner.next(); // 띄어쓰기 와 엔터가 동일하게 생각함. 그래서 띄어쓰기 허용 불가
+		
+		System.out.println("정수: ");
+		int number1 = scanner.nextInt();
+		
+		System.out.println("실수: ");
+		double number2 = scanner.nextDouble();
+		
+		System.out.println("사용자 문자열1: " + str1);
+		System.out.println("문자열2: " + str2);
+		System.out.println("정수: " + number1);
+		System.out.println("실수: " + number2);
+		
+	}
+
+}
+  
+```
+  
+#### 출력물
+  
+```
+  
+문자열1: 가 나 다
+문자열2: 라
+정수: 
+1
+실수: 
+1.0
+사용자 문자열1: 가 나 다
+문자열2: 라
+정수: 1
+실수: 1.0
+  
+```
+  
+---
+	
+- next(); : 띄어쓰기 허용 불가 (띄어쓰기 와 엔터가 동일하게 생각함)
+	
+- nextLine(); : 띄어쓰기 허용
+	
+---
+	
+next()에서 띄어쓰기를 쓸 경우 다음과 같이 내가 엔터로 내가 직접 입력하지 않아도 값이 들어간 걸 확인할 수 있다.
+	
+#### 출력물
+	
+```
+
+문자열1: 가
+문자열2: 가 1 1.0
+정수: 
+실수: 
+사용자 문자열1: 가
+문자열2: 가
+정수: 1
+실수: 1.0
+	
+```
+
+</div>
+</details>
+	
+<details>
+<summary>input3.java</summary> 
+<div markdown="1">       
+	
+```java
+  
+public class input3 {
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		
+		String name = null;
+		int age = 0;
+		String address = null;
+		String phone = null;
+		
+		
+		System.out.print("이름: ");
+		name = scanner.next();
+		
+		System.out.print("나이: ");
+		age = scanner.nextInt();
+		
+		scanner.nextLine();
+		
+		System.out.print("주소: ");
+		address = scanner.nextLine();
+		
+		System.out.print("연락처: ");
+		phone = scanner.next();
+		
+		System.out.println("사용자의 이름은 " + name + "이고 나이는 " + age + "살입니다.");
+		System.out.println("주소는 " + address + "에 거주 중입니다.");
+		System.out.println("연락처는 " + phone + "입니다.");
+		
+	}
+
+}
+  
+```
+  
+#### 출력물
+  
+```
+  
+이름: 정의현
+나이: 24
+주소: 부산광역시 사하구 괴정동
+연락처: 010-5834-3585
+사용자의 이름은 정의현이고 나이는 24살입니다.
+주소는 부산광역시 사하구 괴정동에 거주 중입니다.
+연락처는 010-5834-3585입니다.
+  
+```
+  
+---
+  
+- scanner.next()는 공백이나 개행 문자를 기준으로 문자열을 구분한다.
+	
+- scanner.nextInt()는 정수 값을 읽어들어온다.
+
+  이 때, scanner.nextInt()는 정수 값을 읽은 후에 개행 문자를 버리지 않고 그대로 둔다.
+	
+- scanner.next()로 이름을 입력받은 후에 scanner.nextLine()을 호출하는 이유는 개행 문자를 제거하기 위해서다. 
+
+  개행 문자가 제거되지 않으면 주소 입력부분에서 scanner.nextLine()은 개행 문자를 읽어오기만 하고 실제 주소를 입력받지 않게 된다.
+	
+- 그래서 위 코드에서는 scanner.nextLine()은 개행 문자를 처리하기 위한 용도로 중간에 사용했다.
+	
+---
+	
+scanner.nextLine()을 중간에 사용하지 않고 그대로 쓴다면?
+
+#### 출력물
+	
+```
+
+이름: 정의현
+나이: 24
+주소: 연락처: 010-5834-3585
+사용자의 이름은 정의현이고 나이는 24살입니다.
+주소는 에 거주 중입니다.
+연락처는 010-5834-3585입니다.
+	
+```
+	
+이처럼 개행 문자를 처리하지 못한 상태에서 주소는 건너뛰고 바로 연락처로 넘어가지는 모습을 볼 수 있다.
+
+</div>
+</details>
+	
+
