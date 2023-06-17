@@ -847,4 +847,340 @@ scanner.nextLine()을 중간에 사용하지 않고 그대로 쓴다면?
 </div>
 </details>
 	
+<details>
+<summary>input4.java</summary> 
+<div markdown="1">       
+	
+```java
+  
+public class input4 {
 
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		
+		int a = 0;
+		int b = 0;
+		int c = 0;
+		
+		
+		int max = 0;
+		int min = 0;
+		
+		System.out.println("정수 3개 입력: ");
+		a = scanner.nextInt();		
+		b = scanner.nextInt();		
+		c = scanner.nextInt();		
+
+		max = a; 
+		max = b > max ? b : max;
+		max = c > max ? c : max;
+		
+		min = a;
+		min = b < min ? b : min;
+		min = c < min ? c : min;
+	
+		System.out.println("a: " + a);
+		System.out.println("b: " + b);
+		System.out.println("c: " + c);
+		
+		System.out.println("최대값: " + max);
+		System.out.println("최소값: " + min);
+		
+		
+		
+	}
+
+}
+  
+```
+  
+#### 출력물
+  
+```
+  
+정수 3개 입력: 
+123
+435
+888
+a: 123
+b: 435
+c: 888
+최대값: 888
+최소값: 123
+  
+```
+  
+---
+  
+- 정수 3개 값을 입력을 받고, a에 들어간 값부터 시작해서 최소, 최댓값을 구할 수 있다.
+	
+---
+
+</div>
+</details>
+	
+## 📌 조건(if, switch)
+	
+<details>
+<summary>Conditional1.java</summary> 
+<div markdown="1">       
+	
+```java
+  
+public class Conditional1 {
+
+	public static void main(String[] args) {
+
+		int num = 10;
+		int num2 = 10;
+		
+		if(num > num2) {
+			System.out.println("num이 num2보다 큽니다.");
+			System.out.println("num: " + num);
+		}else if(num == num2) {
+			System.out.println("num이 num2와 같습니다.");
+		}
+		
+		
+		
+		
+	}
+
+}
+  
+```
+  
+#### 출력물
+  
+```
+  
+num이 num2와 같습니다.
+  
+```
+  
+---
+  
+- num의 값과 num2의 값을 비교한 후, num이 num2보다 클 경우 위 if문이 실행.
+
+- num과 num2의 값이 같을 경우 else if문이 실행이 된다.
+	
+- 이렇게 if문에는 안에 조건식이 들어가고, 그 조건식이 참일 경우에만 실행이 된다.
+	
+---
+
+</div>
+</details>
+
+<details>
+<summary>Conditional2.java(시험 성적을 학점으로 계산하는 프로그램)</summary> 
+<div markdown="1">       
+	
+ *
+ * 정수자료형 score변수 선언
+ * 88점으로 초기화
+ * 
+ * 문자자료형 grade변수 선언
+ * 
+ * 조건
+ * score가 0점보다 작거나 100점보다 계산불가
+ * score가 90 ~ 100점이면 A학점
+ * score가 80 ~ 89점이면 B학점
+ * score가 70 ~ 79점이면 C학점
+ * score가 60 ~ 69점이면 D학점
+ * score가 50 ~ 59점이면 F학점
+ * +학점 추가
+	
+```java
+  
+public class Conditional2 {
+
+	public static void main(String[] args) {
+
+	Scanner scanner = new Scanner(System.in);
+
+	int score = 0;
+	String grade = null;
+	
+	System.out.println("점수 입력: " );
+	score = scanner.nextInt();
+	
+	if (score < 0 || score > 100) {
+		grade = null;
+	}else if (score > 89) {
+		grade = "A";
+	}else if (score > 79) {
+		grade = "B";
+	}else if (score > 69) {
+		grade = "C";
+	}else if (score > 59) {
+		grade = "D";
+	}else {
+		grade = "F";
+	}
+	
+	if ((score > 59 && score < 101) && (score % 10 > 4 || score == 100)) {
+		grade += "+";
+	}
+	
+	if(grade == null) {
+		System.out.println("계산 불가");
+	}else {
+	System.out.println("점수(" + score + "): " + grade + "학점");
+		}
+	
+	}
+
+}
+  
+```
+  
+#### 출력물
+  
+```
+  
+점수 입력: 
+98
+점수(98): A+학점
+  
+```
+  
+---
+  
+- 위에 연산자로 했던 것과 비슷하다.
+
+- scanner로 score의 점수를 받아준 다음 그 값을 조건문에 넣는다.
+	
+  score가 참인 if문에서 점수에 맞는 학점을 정해준다.
+	
+- score가 60점 이상, 100점 이하일 때와 score에 10을 나눠준 나머지가 5 이상이거나, 100점일 경우 학점에 +를 준다.
+	
+---
+
+</div>
+</details>
+	
+<details>
+<summary>Switch1.java</summary> 
+<div markdown="1">       
+	
+```java
+  
+public class Switch1 {
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		
+		int score = 0;
+		
+		System.out.println("점수 입력: ");
+		score = scanner.nextInt();
+		
+		if(score < 0 || score > 100) {
+			score = 0;
+		}
+		
+		switch (score / 10) {
+		case 10 :
+		case 9 :
+			System.out.println("A학점");
+			break;
+		case 8 :
+			System.out.println("B학점");
+			break;
+		case 7 :
+			System.out.println("C학점");
+			break;
+		case 6 :
+			System.out.println("D학점");
+			break;
+		default :
+			System.out.println("F학점");
+		
+		
+		}
+		
+	}
+
+}
+  
+```
+  
+#### 출력물
+  
+```
+  
+점수 입력: 
+100
+A학점
+  
+```
+  
+---
+  
+- 위에 연산자, if문으로 했던 것과 비슷하다.
+
+- scanner로 score의 점수를 받아준 다음 그 값을 조건문에 넣는다.
+	
+- switch 문은 해당 case에 맞는 값을 찾아 그 문장을 실행해준다.
+	
+- 실행이 되고 나면 다음 것이 실행이 되면 안 되기 때문에 break는 꼭 걸어주도록.
+	
+- 해당 case가 없으면, default로 가서 F학점을 부여해준다.
+	
+---
+
+</div>
+</details>	
+	
+<details>
+<summary>Switch2.java</summary> 
+<div markdown="1">       
+	
+```java
+  
+public class Switch2 {
+
+	public static void main(String[] args) {
+		String select = "A선택";
+		
+		switch (select) {
+			case "A선택" :
+				System.out.println("PC(A)를 연결합니다.");
+				break;
+			case "B선택" :
+				System.out.println("PC(B)를 연결합니다.");
+				break;
+			case "C선택" :
+				System.out.println("PC(C)를 연결합니다.");
+				break;
+			case "D선택" :
+				System.out.println("PC(D)를 연결합니다.");
+				break;
+			default :
+				System.out.println("else와 같은 역할");
+		}
+	}
+
+}
+  
+```
+  
+#### 출력물
+  
+```
+  
+PC(A)를 연결합니다.
+  
+```
+  
+---
+  
+- 위 Switch1과 동일한 기능
+	
+---
+
+</div>
+</details>	
+	
+	
+	
